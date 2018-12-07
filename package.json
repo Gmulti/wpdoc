@@ -1,0 +1,22 @@
+{
+    "name": "wpdoc",
+    "version": "0.5.0",
+    "bin": {
+        "wpdoc": "./src/cli.js"
+    },
+    "license": "MIT",
+    "main": "src/cli.js",
+    "scripts": {
+        "start": "node ./src/cli.js"
+    },
+    "dependencies": {
+        "cookie-parser": "~1.4.3",
+        "fs": "0.0.1-security",
+        "json2md": "^1.6.1",
+        "lodash": "^4.17.11",
+        "morphism": "^1.6.1",
+        "path": "^0.12.7",
+        "php-parser": "^3.0.0-prerelease.5",
+        "commander": "^2.19.0"
+    }
+}

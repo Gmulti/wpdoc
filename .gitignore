@@ -1,0 +1,4 @@
+**/node_modules/**/*
+file.md
+file.json
+file_parse.json
