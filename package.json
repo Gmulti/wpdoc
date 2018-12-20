@@ -10,13 +10,14 @@
         "start": "node ./src/cli.js"
     },
     "dependencies": {
+        "commander": "^2.19.0",
         "cookie-parser": "~1.4.3",
+        "enquirer": "^2.2.0",
         "fs": "0.0.1-security",
         "json2md": "^1.6.1",
         "lodash": "^4.17.11",
         "morphism": "^1.6.1",
         "path": "^0.12.7",
-        "php-parser": "^3.0.0-prerelease.5",
-        "commander": "^2.19.0"
+        "php-parser": "^3.0.0-prerelease.5"
     }
 }

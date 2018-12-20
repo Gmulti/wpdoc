@@ -6,8 +6,18 @@ const Parser = require('../lib/parser')
 const { morphism } = require('morphism')
 const json2md = require('json2md')
 const walkSync = require('../lib/walkSync')
+const { prompt } = require('enquirer')
+const dataCmd = require('../lib/dataCmd')
+module.exports = async (dir, options) => {
+    const question = {
+        type: 'select',
+        name: 'function_name',
+        message: 'Choose function ?',
+        limit: 5,
+        choices: ['apply_filters', 'do_action']
+    }
+    const { function_name } = await prompt(question)
 
-module.exports = (dir, options) => {
     const engineParser = new engine({
         parser: {
             extractDoc: true
@@ -18,13 +28,13 @@ module.exports = (dir, options) => {
     })
 
     const { parser, schema } = Parser
-
+    dataCmd.setData({ dir: dir })
     let results = []
     for (let file of walkSync(dir)) {
         try {
             const data = engineParser.parseCode(fs.readFileSync(file, 'utf-8'))
 
-            let searchData = parser.searchByWhatName('apply_filters', data)
+            let searchData = parser.searchByWhatName(function_name, data)
             searchData = map(searchData, itm => {
                 return { ...itm, file: file }
             })
